@@ -41,7 +41,7 @@ server {\n\
 	@printf "\
 FROM nginx:latest \n\
 WORKDIR /opt \n\
-COPY nginx.conf /etc/nginx/conf.d/ \n\
+COPY nginx.conf /etc/nginx/conf.d/default.conf \n\
 ADD ./dist . \n\
 " > Dockerfile
 	@echo "✅ Dockerfile created."
@@ -49,4 +49,3 @@ ADD ./dist . \n\
 	@echo "🐳 Building Docker image: ${IMG}..."
 	@docker build -t ${IMG} .
 	@echo "✅ Build complete."
-	

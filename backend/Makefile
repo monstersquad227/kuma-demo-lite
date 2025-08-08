@@ -18,7 +18,7 @@ build-linux: ## Build backend Linux binary.
 .PHONY: build-docker
 build-docker: ## Build docker image with the backend.
 	@echo "📝 Generating temporary Dockerfile..."
-	@echo "\
+	@printf "\
 FROM nginx:latest \n\
 WORKDIR / \n\
 COPY . . \n\
