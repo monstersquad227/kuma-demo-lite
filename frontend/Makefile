@@ -38,7 +38,7 @@ server {\n\
 	@echo "✅ nginx.conf file created."
 
 	@echo "📝 Generating temporary Dockerfile..."
-	@echo "\
+	@printf "\
 FROM nginx:latest \n\
 WORKDIR /opt \n\
 COPY nginx.conf /etc/nginx/conf.d/ \n\
