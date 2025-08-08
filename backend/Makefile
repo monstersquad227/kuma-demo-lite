@@ -21,9 +21,8 @@ build-docker: ## Build docker image with the backend.
 	@printf "\
 FROM nginx:latest \n\
 WORKDIR / \n\
-COPY ./main.go . \n\
-RUN apt update && apt install golang -y && go mod init backend && go mod tidy && $(GO_ENV) go build -o backend\n\
-ENTRYPOINT [\"backend\"] \n\
+COPY ./backend . \n\
+ENTRYPOINT [\"/backend\"] \n\
 " > Dockerfile
 	@echo "✅ Dockerfile created."
 
