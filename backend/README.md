@@ -1,36 +1,40 @@
 # backend
 
-## 项目简介
-`backend` 是一个基于 **Go** 与 **Gin** 框架编写的简单 HTTP 服务，主要用于演示 **Kuma Service Mesh** 环境下的后端服务功能。
+**Languages:** [English](README.md) | [中文](README.zh.md)
 
-它提供了两个接口：
-+ 健康检查端口
-+ 随机数生成接口
+## Overview
 
-该项目可作为 **Kuma Mesh** 中的后端应用示例，方便进行服务发现、路由、mTLS、流量策略等功能的测试。
+`backend` is a simple HTTP service written in **Go** with the **Gin** framework. It serves as the backend in the **Kuma Service Mesh** demo.
 
-## 接口说明
+It exposes two endpoints:
 
-### 1. 健康检查接口
+- Health check
+- Random number API
 
-#### 请求
+Use it as a **Kuma Mesh** backend example for testing service discovery, routing, mTLS, and traffic policies.
+
+## API
+
+### 1. Health check
+
+**Request**
 ```bash
 GET /backend/actuator/health
 ```
 
-#### 响应
+**Response**
 ```json
 "backend OK"
 ```
 
-### 2. 随机数生成接口
+### 2. Random numbers
 
-#### 请求
+**Request**
 ```bash
 GET /backend/random
 ```
 
-#### 响应
+**Response**
 ```json
 [
   {
@@ -48,13 +52,14 @@ GET /backend/random
 ]
 ```
 
-> 说明：
-> + 一次请求会返回 10 条数据
-> + id 从 1 到 10 递增
-> + random 为 1~100 之间的随机整数
-> + created_at / updated_at 为生成时间
+> Notes:
+> - Each request returns 10 items.
+> - `id` goes from 1 to 10.
+> - `random` is an integer between 1 and 100.
+> - `created_at` / `updated_at` are generation timestamps.
 
-## 运行方式
+## Run
+
 ```bash
 backend % make help
 
